@@ -1,6 +1,8 @@
-## Shake Gesture Detection Plugin for Apache Cordova
+## Shake Gesture Detection for Cordova / PhoneGap
 
-Cordova Plugin to detect when a physical device performs a shake gesture. Developed for Apache Cordova CLI >= 3.0.0.
+Apache Cordova / PhoneGap Plugin to detect when a physical device performs a shake gesture.
+
+This is based on a standalone JavaScript implementation I wrote last year ([gist](https://gist.github.com/leecrossley/4078996)).
 
 ### 1 step install
 
@@ -13,6 +15,8 @@ cordova plugin add https://github.com/leecrossley/cordova-plugin-shake-detection
 You **do not** need to reference any JavaScript, the Cordova plugin architecture will add a shake object to your root automatically when you build.
 
 **NB:** There is no native component to this plugin.
+
+### Example
 
 ```js
 var onShake = function () {
