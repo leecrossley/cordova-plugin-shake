@@ -1,11 +1,11 @@
-
 module.exports = (function () {
     "use strict";
     var shake = {},
         watchId = null,
         options = { frequency: 300 },
         previousAcceleration = { x: null, y: null, z: null },
-        shakeCallBack = null;
+        shakeCallBack = null,
+        THRESHOLD = 30;
 
     // Start watching the accelerometer for a shake gesture
     shake.startWatch = function (onShake) {
@@ -36,7 +36,7 @@ module.exports = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
         }
-        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 30) {
+        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > THRESHOLD) {
             // Shake detected
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();
