@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="shake" version="0.1.1">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="shake" version="0.1.2">
     <name>Shake Gesture Detection</name>
     <author>Lee Crossley (http://ilee.co.uk/)</author>
     <description>Cordova Plugin to detect when a physical device performs a shake gesture.</description>
     <keywords>cordova, shake, gesture, accelerometer, acceleration, detection</keywords>
     <engines>
-        <engine name="cordova" version=">=3.0" />
+        <engine name="cordova" version=">=3.0.0" />
     </engines>
     <js-module src="www/shake.js" name="Shake">
         <clobbers target="shake" />
