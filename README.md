@@ -14,7 +14,7 @@ cordova plugin add https://github.com/leecrossley/cordova-plugin-shake-detection
 
 You **do not** need to reference any JavaScript, the Cordova plugin architecture will add a shake object to your root automatically when you build.
 
-**NB:** There is no native component to this plugin.
+**NB:** There is no native component to this plugin but it depends on the device motion plugin (added when this plugin is added).
 
 ### Example
 
