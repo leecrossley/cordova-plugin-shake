@@ -36,8 +36,6 @@ module.exports = (function () {
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();
             }
-            shake.stopWatch();
-            setTimeout(shake.startWatch, 1000);
             previousAcceleration = {
                 x: null,
                 y: null,
