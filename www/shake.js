@@ -12,7 +12,7 @@ module.exports = (function () {
         if (onShake) {
             shakeCallBack = onShake;
         }
-        watchId = navigator.accelerometer.watchAcceleration(getAccelerationSnapshot, handleError, options);
+        watchId = navigator.accelerometer.watchAcceleration(assessCurrentAcceleration, handleError, options);
     };
 
     // Stop watching the accelerometer for a shake gesture
@@ -23,16 +23,10 @@ module.exports = (function () {
         }
     };
 
-    // Gets the current acceleration snapshot from the last accelerometer watch
-    function getAccelerationSnapshot() {
-        navigator.accelerometer.getCurrentAcceleration(assessCurrentAcceleration, handleError);
-    }
-
     // Assess the current acceleration parameters to determine a shake
     function assessCurrentAcceleration(acceleration) {
         var accelerationChange = {};
         if (previousAcceleration.x !== null) {
-            debugger
             accelerationChange.x = Math.abs(previousAcceleration.x - acceleration.x);
             accelerationChange.y = Math.abs(previousAcceleration.y - acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z - acceleration.z);
