@@ -32,9 +32,10 @@ module.exports = (function () {
     function assessCurrentAcceleration(acceleration) {
         var accelerationChange = {};
         if (previousAcceleration.x !== null) {
-            accelerationChange.x = Math.abs(previousAcceleration.x, acceleration.x);
-            accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
-            accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
+            debugger
+            accelerationChange.x = Math.abs(previousAcceleration.x - acceleration.x);
+            accelerationChange.y = Math.abs(previousAcceleration.y - acceleration.y);
+            accelerationChange.z = Math.abs(previousAcceleration.z - acceleration.z);
         }
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 30) {
             // Shake detected
