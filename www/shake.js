@@ -36,18 +36,14 @@ module.exports = (function () {
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();
             }
-            previousAcceleration = {
-                x: null,
-                y: null,
-                z: null
-            };
-        } else {
-            previousAcceleration = {
-                x: acceleration.x,
-                y: acceleration.y,
-                z: acceleration.z
-            };
         }
+
+        previousAcceleration = {
+            x: acceleration.x,
+            y: acceleration.y,
+            z: acceleration.z
+        };
+
     }
 
     // Handle errors here
