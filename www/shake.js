@@ -3,7 +3,7 @@ module.exports = (function () {
     "use strict";
     var shake = {},
         watchId = null,
-        options = { frequency: 300 },
+        options = { frequency: 100 },
         previousAcceleration = { x: null, y: null, z: null },
         shakeCallBack = null;
 
@@ -36,13 +36,13 @@ module.exports = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
         }
-        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 30) {
+        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 20) {
             // Shake detected
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();
             }
             shake.stopWatch();
-            setTimeout(shake.startWatch, 1000);
+            setTimeout(shake.startWatch, 500);
             previousAcceleration = {
                 x: null,
                 y: null,
