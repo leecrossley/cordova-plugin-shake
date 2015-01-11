@@ -24,7 +24,8 @@ var onShake = function () {
 };
 
 // Start watching for shake gestures and call "onShake"
-shake.startWatch(onShake);
+// with a shake sensitivity of 40 (optional, default 30)
+shake.startWatch(onShake, 40);
 
 // Stop watching for shake gestures
 shake.stopWatch();
