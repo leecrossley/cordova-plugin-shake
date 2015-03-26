@@ -25,6 +25,7 @@ module.exports = (function () {
         if (watchId !== null) {
             navigator.accelerometer.clearWatch(watchId);
             watchId = null;
+            previousAcceleration = { x: null, y: null, z: null };
         }
     };
 
@@ -36,18 +37,19 @@ module.exports = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y - acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z - acceleration.z);
         }
-        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
-            // Shake detected
-            if (typeof shakeCallBack === "function") {
-                shakeCallBack();
-            }
-        }
 
         previousAcceleration = {
             x: acceleration.x,
             y: acceleration.y,
             z: acceleration.z
         };
+
+        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
+            // Shake detected
+            if (typeof shakeCallBack === "function") {
+                shakeCallBack();
+            }
+        }
 
     }
 
