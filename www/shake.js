@@ -1,23 +1,33 @@
 
 module.exports = (function () {
     "use strict";
-    var shake = {},
-        watchId = null,
-        options = { frequency: 300 },
-        previousAcceleration = { x: null, y: null, z: null },
-        shakeCallBack = null,
-        sensitivity = 30;
+    var shake = {};
+
+    var watchId = null;
+
+    var options = {
+        frequency: 300
+    };
+
+    var previousAcceleration = {
+        x: null,
+        y: null,
+        z: null
+    };
+
+    var shakeCallBack = null;
+    var sensitivity = 30;
 
     // Start watching the accelerometer for a shake gesture
     shake.startWatch = function (onShake, _sensitivity) {
         if (onShake) {
             shakeCallBack = onShake;
         }
-        if (typeof _sensitivity === "number") {
+        if (typeof (_sensitivity) === "number") {
             sensitivity = _sensitivity;
         }
 
-        watchId = navigator.accelerometer.watchAcceleration(assessCurrentAcceleration, handleError, options);
+        watchId = navigator.accelerometer.watchAcceleration(assessCurrentAcceleration, null, options);
     };
 
     // Stop watching the accelerometer for a shake gesture
@@ -25,12 +35,17 @@ module.exports = (function () {
         if (watchId !== null) {
             navigator.accelerometer.clearWatch(watchId);
             watchId = null;
-            previousAcceleration = { x: null, y: null, z: null };
+
+            previousAcceleration = {
+                x: null,
+                y: null,
+                z: null
+            };
         }
     };
 
     // Assess the current acceleration parameters to determine a shake
-    function assessCurrentAcceleration(acceleration) {
+    var assessCurrentAcceleration = function (acceleration) {
         var accelerationChange = {};
         if (previousAcceleration.x !== null) {
             accelerationChange.x = Math.abs(previousAcceleration.x - acceleration.x);
@@ -51,11 +66,7 @@ module.exports = (function () {
             }
         }
 
-    }
-
-    // Handle errors here
-    function handleError() {
-    }
+    };
 
     return shake;
 })();
