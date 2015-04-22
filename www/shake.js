@@ -20,12 +20,15 @@ module.exports = (function () {
 
     // Start watching the accelerometer for a shake gesture
     shake.startWatch = function (onShake, _sensitivity, onError) {
-        if (onShake) {
-            shakeCallBack = onShake;
+        if (typeof (onShake) !== "function") {
+            return;
         }
+
         if (typeof (_sensitivity) === "number") {
             sensitivity = _sensitivity;
         }
+
+        shakeCallBack = debounce(onShake);
 
         watchId = navigator.accelerometer.watchAcceleration(assessCurrentAcceleration, onError, options);
     };
@@ -61,11 +64,25 @@ module.exports = (function () {
 
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
             // Shake detected
-            if (typeof shakeCallBack === "function") {
-                shakeCallBack();
-            }
+            shakeCallBack();
         }
+    };
 
+    // Prevent duplicate shakes within 750ms
+    var debounce = function (onShake) {
+        var timeout;
+        return function () {
+            if (timeout) {
+                return;
+            }
+
+            timeout = setTimeout(function () {
+                clearTimeout(timeout);
+                timeout = null;
+            }, 750);
+
+            onShake();
+        };
     };
 
     return shake;
