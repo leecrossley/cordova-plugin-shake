@@ -4,10 +4,18 @@ Apache Cordova / PhoneGap Plugin to detect when a physical device performs a sha
 
 This is based on a standalone JavaScript implementation I wrote last year ([gist](https://gist.github.com/leecrossley/4078996)).
 
-### 1 step install
+## Install
+
+#### Latest published version on npm (with Cordova CLI >= 5.0.0)
 
 ```
-cordova plugin add https://github.com/leecrossley/cordova-plugin-shake-detection.git
+cordova plugin add cordova-plugin-shake
+```
+
+#### Latest version from GitHub
+
+```
+cordova plugin add https://github.com/leecrossley/cordova-plugin-shake.git
 ```
 
 ### Usage
