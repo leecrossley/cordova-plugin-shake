@@ -10,5 +10,5 @@
     <js-module src="www/shake.js" name="Shake">
         <clobbers target="shake" />
     </js-module>
-    <dependency id="org.apache.cordova.device-motion" version=">=0.2.0" />
+    <dependency id="cordova-plugin-device-motion" version=">=0.2.0" />
 </plugin>
