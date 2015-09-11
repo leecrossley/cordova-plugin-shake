@@ -6,7 +6,9 @@ This is based on a standalone JavaScript implementation I wrote last year ([gist
 
 ## Install
 
-#### Latest published version on npm (with Cordova CLI >= 5.0.0)
+Requires Cordova v5.0.0 or above.
+
+#### Latest published version on npm
 
 ```
 cordova plugin add cordova-plugin-shake

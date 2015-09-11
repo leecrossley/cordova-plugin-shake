@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-shake",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": "Lee Crossley <leee@hotmail.co.uk> (http://ilee.co.uk/)",
   "description": "Cordova Plugin to detect when a physical device performs a shake gesture.",
   "cordova": {
@@ -23,7 +23,7 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=3.0.0"
+      "version": ">=5.0.0"
     }
   ],
   "license": "MIT",
