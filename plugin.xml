@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.5.3">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.5.4">
     <name>Shake Gesture Detection</name>
     <author>Lee Crossley (http://ilee.co.uk/)</author>
     <description>Cordova Plugin to detect when a physical device performs a shake gesture.</description>
@@ -11,4 +11,18 @@
         <clobbers target="shake" />
     </js-module>
     <dependency id="cordova-plugin-device-motion" version=">=1.1.1" />
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVShake">
+                <param name="ios-package" value="CDVShake"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVShake.h" />
+        <source-file src="src/ios/CDVShake.m" />
+    </platform>
+
 </plugin>
