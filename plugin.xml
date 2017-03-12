@@ -1,28 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.5.4">
-    <name>Shake Gesture Detection</name>
-    <author>Lee Crossley (http://ilee.co.uk/)</author>
-    <description>Cordova Plugin to detect when a physical device performs a shake gesture.</description>
-    <keywords>cordova, shake, gesture, accelerometer, acceleration, detection</keywords>
-    <engines>
-        <engine name="cordova" version=">=3.0.0" />
-    </engines>
-    <js-module src="www/shake.js" name="Shake">
-        <clobbers target="shake" />
-    </js-module>
-    <dependency id="cordova-plugin-device-motion" version=">=1.1.1" />
-
-    <!-- ios -->
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="CDVShake">
-                <param name="ios-package" value="CDVShake"/>
-                <param name="onload" value="true"/>
-            </feature>
-        </config-file>
-
-        <header-file src="src/ios/CDVShake.h" />
-        <source-file src="src/ios/CDVShake.m" />
-    </platform>
-
+<plugin 
+	xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.5.4">
+	<name>Shake Gesture Detection</name>
+	<author>Lee Crossley (http://ilee.co.uk/)</author>
+	<description>Cordova Plugin to detect when a physical device performs a shake gesture.</description>
+	<keywords>cordova, shake, gesture, accelerometer, acceleration, detection</keywords>
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+	<js-module src="www/shake.js" name="Shake">
+		<clobbers target="shake" />
+	</js-module>
+	<dependency id="cordova-plugin-device-motion" version=">=1.1.1" />
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="CDVShake">
+				<param name="ios-package" value="CDVShake"/>
+				<param name="onload" value="true"/>
+			</feature>
+		</config-file>
+		<header-file src="src/ios/CDVShake.h" />
+		<source-file src="src/ios/CDVShake.m" />
+		<hook type="after_plugin_install" src="src/ios/hooks/patchMainViewController.js" />
+	</platform>
 </plugin>

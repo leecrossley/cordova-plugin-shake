@@ -18,4 +18,7 @@
 #import <Cordova/CDVPlugin.h>
 
 @interface CDVShake : CDVPlugin
+
+- (void)deviceShaken;
+
 @end

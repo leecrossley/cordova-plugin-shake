@@ -23,6 +23,16 @@
 - (void)pluginInitialize
 {
 	[UIApplication sharedApplication].applicationSupportsShakeToEdit = NO;
+
+	// TODO: move
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceShaken) name:@"CDVShakeDeviceShaken" object:nil];
+	// [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CDVShakeDeviceShaken" object:nil];
+}
+
+- (void)deviceShaken
+{
+	// TODO: do real action
+    NSLog(@"deviceShaken");
 }
 
 @end
