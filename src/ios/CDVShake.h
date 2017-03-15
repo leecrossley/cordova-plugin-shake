@@ -20,5 +20,7 @@
 @interface CDVShake : CDVPlugin
 
 - (void)deviceShaken;
+- (void)startWatch:(CDVInvokedUrlCommand*)command;
+- (void)stopWatch:(CDVInvokedUrlCommand*)command;
 
 @end
