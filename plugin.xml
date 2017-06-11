@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<plugin 
-	xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.5.4">
+<plugin
+	xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-shake" version="0.6.0">
 	<name>Shake Gesture Detection</name>
 	<author>Lee Crossley (http://ilee.co.uk/)</author>
 	<description>Cordova Plugin to detect when a physical device performs a shake gesture.</description>
