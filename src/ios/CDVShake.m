@@ -20,9 +20,45 @@
 
 @implementation CDVShake
 
+NSString* callbackId = nil;
+    
 - (void)pluginInitialize
 {
+    NSLog(@"CDVShake::pluginInitialize");
+
 	[UIApplication sharedApplication].applicationSupportsShakeToEdit = NO;
+    
+    // register for shake notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceShaken) name:@"CDVShakeDeviceShaken" object:nil];
+    }
+
+- (void)startWatch:(CDVInvokedUrlCommand*)command
+{
+	NSLog(@"CDVShake::startWatch");
+
+    // store callback id to be used, when device is shaken
+    callbackId = command.callbackId;
+}
+
+- (void)stopWatch:(CDVInvokedUrlCommand*)command
+{
+	NSLog(@"CDVShake::stopWatch");
+
+    // remove callback id
+    callbackId = nil;
+}
+
+- (void)deviceShaken
+{
+    NSLog(@"CDVShake::deviceShaken");
+    
+    // device was shaken
+    // inform app using the stored callback id
+    if (callbackId != nil) {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        [pluginResult setKeepCallbackAsBool:YES];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
+    }
 }
 
 @end
