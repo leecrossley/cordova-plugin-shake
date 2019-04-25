@@ -23,12 +23,16 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=5.0.0"
+      "version": ">=9.0.0"
     }
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/leecrossley/cordova-plugin-shake-detection/issues"
   },
-  "homepage": "https://github.com/leecrossley/cordova-plugin-shake-detection#readme"
+  "homepage": "https://github.com/leecrossley/cordova-plugin-shake-detection#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path":"^0.12.7"
+  }
 }

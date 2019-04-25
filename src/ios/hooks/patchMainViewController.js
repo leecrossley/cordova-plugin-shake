@@ -1,6 +1,6 @@
 module.exports = function (ctx) {
-	var fs = ctx.requireCordovaModule('fs');
-	var path = ctx.requireCordovaModule('path');
+	var fs = require('fs');
+	var path = require('path');
 
 	function patchMainViewController(fileName) {
 		var data = fs.readFileSync(fileName, "utf8");
