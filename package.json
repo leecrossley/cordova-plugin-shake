@@ -30,5 +30,9 @@
   "bugs": {
     "url": "https://github.com/leecrossley/cordova-plugin-shake-detection/issues"
   },
-  "homepage": "https://github.com/leecrossley/cordova-plugin-shake-detection#readme"
+  "homepage": "https://github.com/leecrossley/cordova-plugin-shake-detection#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path":"^0.12.7"
+  }
 }
